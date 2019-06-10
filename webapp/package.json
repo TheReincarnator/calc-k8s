@@ -1,0 +1,40 @@
+{
+	"name": "@thereincarnator/calc-webapp",
+	"version": "1.0.0",
+	"description": "Calc. A calculatur using a React/MobX front-end, a SpringBoot REST service, and a Kubernetes cluster for deployment, just because.",
+	"scripts": {
+		"clean": "rm -rf dist",
+		"build": "webpack --mode=development",
+		"build:prod": "webpack --mode=production",
+		"dev": "webpack-dev-server --open",
+		"kill": "taskkill /im node.exe /f"
+	},
+	"prettier": {
+		"arrowParens": "avoid",
+		"bracketSpacing": false,
+		"printWidth": 100,
+		"quoteProps": "as-needed",
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 3,
+		"useTabs": true
+	},
+	"dependencies": {
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.4.5",
+		"@babel/preset-env": "^7.4.5",
+		"@babel/preset-react": "^7.0.0",
+		"@types/react": "^16.8.19",
+		"@types/react-dom": "^16.8.4",
+		"babel-loader": "^8.0.6",
+		"react-hot-loader": "^4.11.0",
+		"ts-loader": "^6.0.2",
+		"typescript": "^3.5.1",
+		"webpack": "^4.29.6",
+		"webpack-cli": "^3.3.0",
+		"webpack-dev-server": "^3.2.1"
+	}
+}
