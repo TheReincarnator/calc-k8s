@@ -1,0 +1,4 @@
+AddDefaultCharset utf-8
+
+RewriteEngine on
+RewriteRule ^/?bff(|/.*)$ http://calc-k8s-be:80$1 [P,NE,QSA,L]

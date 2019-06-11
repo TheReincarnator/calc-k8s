@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const CopyPlugin = require('copy-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 
 module.exports = {
@@ -12,7 +13,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js', '.json', '.html']
+		extensions: ['.tsx', '.ts', '.js', '.json']
 	},
 
 	module: {
@@ -25,7 +26,20 @@ module.exports = {
 		]
 	},
 
-	plugins: [new webpack.HotModuleReplacementPlugin()],
+	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+
+		new CopyPlugin([
+			{
+				context: 'src',
+				from: '**/*.html'
+			},
+			{
+				context: 'src',
+				from: '**/.htaccess'
+			}
+		])
+	],
 
 	optimization: {
 		minimizer: [
