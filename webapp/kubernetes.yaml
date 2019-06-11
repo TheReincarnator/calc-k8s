@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: calc-k8s-fe
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: calc-k8s-fe
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: calc-k8s-fe
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: calc-k8s-fe
+    spec:
+      containers:
+        - name: calc-k8s-fe
+          image: thereincarnator/thereincarnator:calc-k8s-fe
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
